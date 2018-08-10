@@ -1,0 +1,46 @@
+{% extends 'blog/../blog/base.html' %}
+{% load staticfiles %}
+{% load blog_tags %}
+
+{% block title %}{{ get_article_info.title }}-花寄{% endblock %}
+{% block metas %}
+    <meta name="description" content="{{ get_article_info.excerpt }}">
+    <meta name="keywords" content="{% article_to_str get_article_info %}">
+{% endblock %}
+
+{% block story_detail %}
+    {% for article in get_article %}
+    <article class="post post-1" style="background-color: #f4f4f4">
+        <header class="entry-header">
+            <h1 class="entry-title">
+                {{ article.title }}
+            </h1>
+            <div class="entry-meta">
+                <span class="post-date">
+                    <time class="entry-date" datetime="{{ article.create_time }}" style="color: #444">
+                        {{ article.create_time.year }} 年 {{ article.create_time.month }} 月
+                    </time>
+                </span>
+                <span class="post-author" style="color: #6b6b6b">{{ article.user }}</span>
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                <span class="views-count" style="color: #6b6b6b">{{ article.views }}</span>
+{#                <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>#}
+{#                <span class="likes-count" style="color: #6b6b6b">{{ article.likes }}</span>#}
+{#                <span class="comments-link"><a href="#">{{ article.comment_set.all }}</a></span>#}
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            <p>{{ get_article_info.body|safe }}</p>
+        </div>
+{#            <div class="article-detail-boot">#}
+{#                <div class="likes cl-effect-14">#}
+{#                    <a href="#">#}
+{#                    <span class="glyphicon far fa-thumbs-up">点赞</span>#}
+{#                    <span class="glyphicon fas fa-thumbs-up">点赞</span>#}
+{#                        </a>#}
+{#                </div>#}
+{#            </div>#}
+        {% endfor %}
+    </article>
+
+{% endblock %}

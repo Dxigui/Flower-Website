@@ -1,0 +1,50 @@
+{% extends 'flower/base.html' %}
+{% load staticfiles %}
+{% load flower_tags %}
+
+{% block title %}终端形象-花寄{% endblock %}
+{% block metas %}
+    <meta name="description" content="生活中的美与浪漫，值得每个为生活而拼搏的人拥有。
+    直接且真挚的表达，值得每个为无言而无悔的人拥有。
+    一人一生一次一花，值得每个为自知而感动的人拥有。
+    每个人值得被送一次花，每个人值得送一次花。珍惜自己的人生，释放生命的感动。
+    一人一生一次——用那些花儿送给人生中无法用言语表达之感动的那人、那事。">
+    <meta name="keywords" content="花寄，花店，鲜花配送服务，个性花束,{% terminal_title %}">
+{% endblock %}
+{% block rendering %}{% endblock %}
+
+{% block terminal %}
+<div class="terminal-picture">
+{% for terminal in terminals_list %}
+<figure class="red frame">
+	<img src="{{ terminal.img_link }}" alt="" width=300 />
+	<figcaption>
+		<h2>{{ terminal.title }}</h2>
+		<span>by <span class="fn">{{ terminal.description }}</span></span>
+	</figcaption>
+</figure>
+{% endfor %}
+{#<figure class="frame">#}
+{#	<img src="https://unsplash.com/photos/hiAdjnXZxl8/download" alt="" width=300 />#}
+{##}
+{#	<figcaption>#}
+{#		<h2>She is a Photographer</h2>#}
+{#		<span>by <span class="fn">Alex Spencer</span></span>#}
+{#	</figcaption>#}
+{#</figure>#}
+{% if is_paginated %}
+        <div class="pagination-simple">
+            {% if page_obj.has_previous %}
+            <a class="page-up" href="?page={{ page_obj.previous_page_number }}">
+                &laquo;上一页
+            </a>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <a class="page-down" href="?page={{ page_obj.next_page_number }}">
+                下一页&raquo;
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

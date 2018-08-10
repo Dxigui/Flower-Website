@@ -1,0 +1,415 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Dxigui (you@example.org)
+ * @date    2018-07-21 15:14:22
+ * @version $v1.0$
+ */
+
+
+/* ========================= */
+/*    1.// ResetCss
+/* ========================= */
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	vertical-align: baseline;
+	box-sizing: border-box;
+	border-width: 0;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+}
+
+body {
+	background-color: white;
+	height: 100%;
+	width: 100%;
+	min-width: 960px;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+
+
+
+/* ========================= */
+/*    2.// HeadView
+/* ========================= */
+
+
+.head-view {
+	width: 100%;
+	height: auto;
+}
+
+
+/* ========================= */
+/*    2.1// TopHead
+/* ========================= */
+
+.head-top {
+	width: 100%;
+	min-height: 180px;
+	text-align: center;
+}
+
+.head-logo {
+	display: inline-block;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	/*padding: 20px 0 20px 40%;*/
+}
+
+.head-logo a img {
+	display: block;
+	border-radius: 50px;
+	width: 260px;
+	height: 160px;
+}
+
+.head-telephone {
+	float: right;
+	padding: 110px 100px 0 0;
+}
+
+.head-telephone span {
+	font-size: 20px;
+	color: red;
+}
+
+
+/* ========================= */
+/*    2.1// NavBar
+/* ========================= */
+
+.navigation-bar {
+    min-height: 60px;
+}
+
+.navigation {
+    float: left;
+    display: block;
+    width: 100%;
+    height: 89px;
+	text-align: center;
+	border-bottom: 1px solid #d4d0d0;
+	border-top: 1px solid #d4d0d0;
+	z-index: 3;
+}
+
+.navigation li {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.navigation li a {
+	display: inline-block;
+	color: black;
+	padding: 30px 35px;
+}
+
+.navigation li a:hover {
+	color: #ff3355;
+	background-color: #eee;
+	border-bottom: 2px solid red;
+
+}
+/*.nav li:hover {
+	content: "";
+	height: 3px;
+	width: 100%;
+	background-color: #ff3355;
+	display: inline-block;
+	opacity: 0;
+}*/
+
+
+/* ========================= */
+/*    3.// MiddlePage
+/* ========================= */
+
+
+.middle-page {
+	margin-top: 10px;
+	padding-top: 10px
+}
+
+
+
+/* ========================= */
+/*    3.1// Title
+/* ========================= */
+
+.title {
+	width: 100%;
+	height: 150px;
+	text-align: center;
+	position: relative;
+}
+
+.title-image {
+	padding: 60px 0 20px 0;
+}
+
+.title-image img {
+	line-height: 150px;
+}
+
+/* ========================= */
+/*    3.2// Content
+/* ========================= */
+
+
+.content {
+	/*width: 100%;*/
+	max-width: 960px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.show-products {
+	display: table;
+	table-layout: fixed;
+}
+
+.show-products li {
+	display: inline-block;
+	margin: 10px 10px;
+}
+
+.flower-image {
+	display: inline-block;
+}
+
+.make-div {
+	position: relative;
+}
+
+.new-flower img {
+	width: 300px;
+	height: 240px;
+}
+
+.hidden-content {
+	display: inline-block;
+	width: 300px;
+	height: 240px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+
+.hidden-content span {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	opacity: 0;
+}
+
+.hidden-content img {
+	margin-top: 80px;
+	width: 20px;
+	height: 20px;
+}
+
+.flower-name {
+	padding: 10px 0;
+	font-size: 22px;
+}
+
+.view-info {
+	padding: 3px 5px;
+	border: 1px solid red;
+}
+
+.sy {
+	display: inline-block;
+	color: red;
+}
+
+
+.hidden-content span:hover {
+	opacity: 0.7;
+	background-color: white;
+}
+
+.flower-image img:hover {
+	opacity: 0.5;
+}
+
+/* ========================= */
+/*    3.3// ShowAllTag
+/* ========================= */
+
+.show-all {
+	width: 100%;
+}
+
+.redirect-link {
+	text-align: center;
+	padding: 10px 0 30px 0;
+	font-size: 30px;
+}
+
+.redirect-link a span {
+	color: #7c7c7c;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px 30px;
+	border: 1px solid #7c7c7c;
+}
+
+.redirect-link a span:hover {
+	background-color: #eee;
+	color: red;
+	opacity: 0.5;
+}
+
+
+/* ========================= */
+/*    3.4// SimpleIntroduceMyself
+/* ========================= */
+
+
+.background-content {
+	width: 100%;
+	max-width: 960px;
+	/*height: 720px*/
+	margin: 0 auto;
+}
+
+.background {
+	position: relative;
+	height: 720px;
+}
+
+.bg-image img {
+	max-height: 720px;
+	max-width: 960px;
+	opacity: 0.9;
+	/*margin: 0 auto;*/
+}
+
+.introduce {
+	position: absolute;
+	width: 100%;
+	max-width: 960px;
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+
+.middle-logo {
+	text-align: center;
+}
+
+.middle-logo img {
+	display: inline-block;
+	margin: 60px 0 40px 0;
+	border-radius: 50px;
+	width: 180px;
+	height: 120px;
+}
+
+.motto {
+	padding: 20px 0;
+}
+
+.motto p {
+	margin-bottom: 10px;
+	font-size: 20px;
+	color: white;
+	word-wrap: break-word;
+
+}
+
+.redirect-to-us {
+	text-align: center;
+	padding: 10px 0 30px 0;
+	font-size: 30px;
+}
+
+.learn-more span {
+	color: #c6c6c6;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px 30px;
+	border: 1px solid #7c7c7c;
+}
+
+.learn-more span:hover {
+	background-color: #eee;
+	color: red;
+	opacity: 0.5;
+}
+
+
+/* ========================= */
+/*    4.// BootNav
+/* ========================= */
+
+.boot {
+	border-top: 1px solid black;
+	background-color: #eee;
+	margin-top: 40px;
+}
+
+.boot-bar {
+	width: 100%;
+	max-width: 960px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.boot-content {
+    margin: 30px auto
+}
+
+.cnav {
+    display: inline-block;
+    margin: auto 8%;
+}
+
+.lnav li {
+    padding: 10px;
+}
+
+.lnav li a {
+	color: #a2a2a2;
+
+}
+
+.lnav li a:hover {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+
+/* ========================= */
+/*    4.1// CompanyInfo
+/* ========================= */
+
+.wapper960 {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.bt {
+	padding: 10px;
+}
+
+.bt p {
+	font-size: 16px;
+	color: #a2a2a2;
+}

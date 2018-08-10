@@ -1,0 +1,127 @@
+{% extends 'flower/base.html' %}
+{% load staticfiles %}
+{% load flower_tags %}
+
+{% block title %}一人一生一次一花-花寄{% endblock %}
+{% block metas %}
+    <meta name="description" content="生活中的美与浪漫，值得每个为生活而拼搏的人拥有。
+    直接且真挚的表达，值得每个为无言而无悔的人拥有。
+    一人一生一次一花，值得每个为自知而感动的人拥有。
+    每个人值得被送一次花，每个人值得送一次花。珍惜自己的人生，释放生命的感动。
+    一人一生一次——用那些花儿送给人生中无法用言语表达之感动的那人、那事。">
+    <meta name="keywords" content="花寄，花店，鲜花配送服务，个性花束">
+    <meta name="baidu-site-verification" content="YCoD4WTuGF" />
+    <meta name="360-site-verification" content="5492df7d63c9ceb707eff60d6cf699e1" />
+    <meta name="sogou_site_verification" content="czcxwE2sdj"/>
+    <meta name="shenma-site-verification" content="169f4055c7f0323f020d0d238a2bec48_1523704037">
+{% endblock %}
+{% block rendering %}{% endblock %}
+{% block telephone %}{% endblock %}
+{% block showpictrue %}
+    <!-- 滚动图片 -->
+    <div class="slideshow-container">
+      <div class="mySlides fade" style="display: block">
+          <a href="{% url 'product' %}">
+            <img src="{{ carousels_list.0.img_url }}" alt="花寄滚动图">
+          </a>
+        <div class="text">{{ carousels_list.0.title }}</div>
+      </div>
+      <div class="mySlides fade">
+          <a href="{% url 'product' %}">
+              <img src="{{ carousels_list.1.img_url }}" style="width:100%;height:650px">
+          </a>
+        <div class="text">{{ carousels_list.1.title }}</div>
+      </div>
+      <div class="mySlides fade">
+          <a>
+            <img src="{{ carousels_list.2.img_url }}" style="width:100%;height:650px">
+          </a>
+        <div class="text">{{ carousels_list.2.title }}</div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+{% endblock %}
+{% block new-products-tile %}
+    <!-- 最新产品标题 -->
+    <div class="title">
+        <div class="title-image">
+            <img src="{% static 'flower/images/new-products-title.png' %}" alt="花寄新产品列表">
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <!-- 新产品展示 -->
+<div class="content">
+    <div class="new-products">
+        <ul class="show-products">
+            {% for new_product in new_products_list %}
+            <li>
+                <a class="new-flower" href="{% url 'product' %}#anchor">
+                <div class="make-div">
+                    <div class="flower-image">
+                        <img src="{{ new_product.img_link }}" alt="花寄花店新产品图" >
+                    </div>
+                    <div class="hidden-content">
+                        <span>
+                        <img src="{% static 'flower/images/love.png' %}" alt="" /><br>
+                        <p class="flower-name sy">{{ new_product.flower_name }}</p><br>
+                        <p class="view-info sy">VIEW</p>
+                        </span>
+                    </div>
+                </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
+{% block showall %}
+    <div class="show-all">
+        <div class="redirect-link">
+            <a href="{% url 'product' %}">
+                <span>更多产品</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+{% block introduce %}
+<!-- 关于我们 -->
+<div class="background-content">
+    <div class="background">
+        <div class="bg-image">
+            <img src="{% static 'flower/images/bg-image.jpg' %}" alt="花寄花店简介背景 " >
+        </div>
+        <div class="introduce">
+            <div class="middle-logo">
+                <img src="{% static 'flower/images/logo.jpg' %}" alt="花寄花店Logo">
+            </div>
+            <div class="motto">
+                <p>生活中的美与浪漫，值得每个为生活而拼搏的人拥有。</p>
+
+                <p>直接且真挚的表达，值得每个为无言而无悔的人拥有。</p>
+
+                <p>一人一生一次一花，值得每个为自知而感动的人拥有。</p>
+
+                <p>每个人值得被送一次花，每个人值得送一次花。珍惜自己的人生，释放生命的感动。</p>
+
+                <p>一人一生一次——用那些花儿送给人生中无法用言语表达之感动的那人、那事。</p>
+            </div>
+            <div class="redirect-to-us">
+                {% get_about_us_nav_list as about_us %}
+                <a class="learn-more" href="{% url 'aboutus' pk=about_us.id %}">
+                    <span>了解更多</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

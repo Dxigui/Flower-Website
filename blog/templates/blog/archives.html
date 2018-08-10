@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% load blog_tags %}
+
+{% block title %}归档-花寄{% endblock %}
+{% block metas %}
+    <meta name="description" content="生活中的美与浪漫，值得每个为生活而拼搏的人拥有。
+    直接且真挚的表达，值得每个为无言而无悔的人拥有。
+    一人一生一次一花，值得每个为自知而感动的人拥有。
+    每个人值得被送一次花，每个人值得送一次花。珍惜自己的人生，释放生命的感动。
+    一人一生一次——用那些花儿送给人生中无法用言语表达之感动的那人、那事。">
+    <meta name="keywords" content="花寄，花店，鲜花配送服务，个性花束">
+{% endblock %}
+
+{% block archives %}
+    {% for article in get_archive_articles %}
+    <article class="post post-1" style="background-color: #f4f4f4">
+        <header class="entry-header">
+            <h1 class="entry-title">
+                <a href="{% url 'detail' article.id %}">{{ article.title }}</a>
+            </h1>
+            <div class="entry-meta">
+                <span class="post-date">
+                    <time class="entry-date" datetime="{{ article.create_time }}" style="color: #444">
+                        {{ article.create_time.year }} 年 {{ article.create_time.month }} 月
+                    </time>
+                </span>
+                <span class="post-author" style="color: #6b6b6b">{{ article.user }}</span>
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                <span class="views-count" style="color: #6b6b6b">{{ article.views }}</span>
+{#                <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>#}
+{#                <span class="likes-count" style="color: #6b6b6b">{{ article.likes }}</span>#}
+{#                <span class="comments-link"><a href="#">{{ article.comment_set.all }}</a></span>#}
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            <p>{{ article.excerpt }}</p>
+            <div class="read-more cl-effect-14">
+                <a href="{% url 'detail' article.id %}" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+            </div>
+        </div>
+    </article>
+    {% empty %}
+        <div class="no-post">本月还没有发布文章</div>
+    {% endfor %}
+{% endblock %}

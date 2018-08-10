@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors Dxigui (you@example.org)
+ * @date    2018-07-21 15:14:22
+ * @version $v1.0$
+ */
+
+
+/* ========================= */
+/*    1.// CustomLikeTag
+/* ========================= */
+
+
+.likes {
+    font-size: 18px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.likes a span {
+    display: inline-block;
+    padding: 10px 15px;
+}
+
+.post {
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #cecece;
+}
+
+.glyphicon {
+    color: #717171;
+}
+
+/* ========================= */
+/*    2.// CustomSidebar
+/* ========================= */
+
+#searchform {
+    margin-top: 30px;
+}
+
+.col-md-4 {
+    border-radius: 10px;
+    border: 1px solid #cecece;
+    margin-top: 10px;
+}
+
+.widget-title {
+    display: block;
+    border-bottom: 1px solid #cecece;
+}
+
+.widget ul li {
+    margin-bottom: 10px;
+}
+
+
+/* ========================= */
+/*    3.// CustomSearchResult
+/* ========================= */
+
+
+.pagination-search {
+    text-align: center;
+}
+
+.pagination-search a:hover {
+    background-color: #cecece;
+}
+
+/* ========================= */
+/*    3.// Paginator
+/* ========================= */
+
+.page-up {
+    float: left;
+    color: #337ab7;
+    border: 1px solid #cecece;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.page-down {
+    float: right;
+    color: #337ab7;
+    border: 1px solid #cecece;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.current {
+    display: inline-block;
+    padding: 5px 10px;
+}

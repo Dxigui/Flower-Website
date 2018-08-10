@@ -1,0 +1,107 @@
+{% load staticfiles %}
+{% load blog_tags %}
+{% load flower_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    {% block metas %}
+    {% endblock %}
+    <link rel="icon" href="{% static 'flower/images/flower_ico.ico' %}" type="image/x-icon"/>
+    <link rel="stylesheet" href="{% static 'blog/css/base.css' %}" >
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}" >
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}" >
+    <link rel="stylesheet" href="{% static 'blog/css/custom_page.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <style>
+        span.highlighted {
+            color: #ff4848;
+        }
+    </style>
+</head>
+<body>
+    <div class="flower-shop">
+        <div class="wapper">
+            <div class="head-view">
+                <!-- 头部信息 -->
+                <div class="head-top">
+                    {% block head_logo %}
+                    <div class="head-logo">
+                        <a href="{% url 'index' %}"><img src="{% static 'flower/images/logo.jpg' %}" ></a>
+                    </div>
+                    {% endblock %}
+                    {% block telephone %}{% endblock %}
+                </div>
+                {% block head-nav %}
+                    <!-- 导航栏 -->
+                    <div class="navigation-bar">
+                        <ul class="navigation">
+                            <li><a href="{% url 'index' %}">首页</a></li>
+                            <li><a href="{% url 'product' %}">产品中心</a></li>
+                            <li><a href="{% url 'terminal' %}">终端形象</a></li>
+                            <li><a href="{% url 'ourstory' %}">爱情故事</a></li>
+{#                            <li><a href="{% url 'cooperation' %}">商业合作</a></li>#}
+                            {% get_about_us_nav_list as about_us %}
+                            <li><a href="{% url 'aboutus' pk=about_us.id %}">关于我们</a></li>
+                        </ul>
+                    </div>
+                {% endblock %}
+            </div>
+            <div class="middle-page">
+                <div class="content-body">
+                    <div class="container">
+                        <div class="row">
+                            <main class="col-md-8">
+                                <!-- 我们的故事首页 -->
+                                {% block our_story %}{% endblock %}
+                                <!-- 文章详情页面 -->
+                                {% block story_detail %}{% endblock %}
+                                <!-- 搜索详情页 -->
+                                {% block search %}{% endblock %}
+                                <!-- 归档页面 -->
+                                {% block archives %}{% endblock %}
+                            </main>
+                            <aside class="col-md-4" style="background-color: #f4f4f4">
+                                <form role="search" method="get" id="searchform" action="{% url 'haystack_search' %}">
+                                    <input type="search" name="q" placeholder="搜索" required>
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </form>
+                                <div class="widget" style="background-color: #f4f4f4">
+                                <h3 class="widget-title">
+                                    <i class="fas fa-sitemap"></i>
+                                    归档
+                                </h3>
+                                {% archives as date_list %}
+                                <ul>
+                                    {% for date in date_list %}
+                                    <li>
+                                        <span class="far fa-calendar-alt">
+                                        <a href="{% url 'archives' date.year date.month %}">{{ date.year }} 年 {{ date.month }} 月</a>
+                                        </span>
+                                    </li>
+                                    {% empty %}
+                                    暂无归档！
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'flower/tag_templates/boot_nav.html' %}
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'blog/js/pace.min.js' %}"></script>
+    <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>
+    <script src="{% static 'flower/js/canva-nest.js' %}"></script>
+</body>
+</html>

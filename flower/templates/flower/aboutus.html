@@ -1,0 +1,48 @@
+{% extends 'flower/base.html' %}
+{% load staticfiles %}
+{% load flower_tags %}
+
+{% block title %}{{ get_brand.title }}-花寄{% endblock %}
+{% block metas %}
+    <meta name="description" content="生活中的美与浪漫，值得每个为生活而拼搏的人拥有。
+    直接且真挚的表达，值得每个为无言而无悔的人拥有。
+    一人一生一次一花，值得每个为自知而感动的人拥有。
+    每个人值得被送一次花，每个人值得送一次花。珍惜自己的人生，释放生命的感动。
+    一人一生一次——用那些花儿送给人生中无法用言语表达之感动的那人、那事。">
+    <meta name="keywords" content="花寄，花店，{% brand_to_str %}">
+{% endblock %}
+
+{% block rendering %}
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+{% endblock %}
+{% block aboutus %}
+   <div class="content-body">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8">
+                   <article class="post post-1" style="background-color: #f4f4f4">
+                       <header class="entry-header">
+                           <h1 class="entry-title">
+                                {{ get_brand.title }}
+                           </h1>
+                       </header>
+                       <div class="entry-content clearfix">
+                           {{ get_brand.body|safe }}
+                       </div>
+                   </article>
+                </main>
+                <aside class="col-md-4">
+                    <div class="cube_container">
+                        <div class="cube">
+                        {% for brand in get_brand_list %}
+                        <div class="cube_face front_cube">
+                            <a href="{% url 'aboutus' pk=brand.id %}" style="font-size: 20px">{{ brand.title }}</a>
+                          </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+{% endblock %}

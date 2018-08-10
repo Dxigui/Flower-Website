@@ -1,0 +1,35 @@
+{% load flower_tags %}
+<div class="boot">
+    <!-- 底边栏 -->
+    {% block bootbar %}
+        <div class="boot-bar">
+            <div class="boot-content">
+                {% get_boot_tag_list as boot_tag_list %}
+                {% for boot_tag in boot_tag_list  %}
+                <div class="content-1 cnav">
+                <h4 class="logistics">{{ boot_tag.title }}</h4>
+                <ul class="logs-nav lnav">
+                    {% for about_us in boot_tag.aboutusmodel_set.all %}
+                    <li>
+                        <a href="{% url 'aboutus' pk=about_us.id %}">{{ about_us.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% block company-info %}
+            <!-- 公司信息 -->
+        <div class="company-info">
+            <div class="wapper960">
+                <div class="bt">
+                    <p>
+                        Copyright © 2011-2016 XXXX有限公司 版权所有 保留一切权利苏网文[2012]0401-019号苏公网安备 32011402010002号
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    {% endblock %}
+</div>
