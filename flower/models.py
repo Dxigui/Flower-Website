@@ -30,6 +30,16 @@ class Carousel(models.Model):
     def __str__(self):
         return self.title
 
+# 背景图
+class BackgroundImage(models.Model):
+    img_link = models.CharField(max_length=255, verbose_name='背景图')
+    create_time = models.DateTimeField(verbose_name='创建时间',
+                                       help_text='显示最新创建的图片')
+
+    class Meta:
+        verbose_name = '首页关于我们简介背景图'
+        verbose_name_plural = verbose_name
+
 # 底部导航栏
 class BootTag(models.Model):
     title = models.CharField(max_length=20, verbose_name='标题')

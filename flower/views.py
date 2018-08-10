@@ -4,7 +4,7 @@ import markdown
 from django.shortcuts import render, HttpResponseRedirect, get_list_or_404, get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import AboutUsModel, Product, Terminal, Carousel
+from .models import AboutUsModel, Product, Terminal, Carousel, BackgroundImage
 
 
 def logo(request):
@@ -22,11 +22,13 @@ def index(request):
     """
     carousels_list = Carousel.objects.all().order_by('-number')[:3]
     new_products_list = Product.objects.all().order_by('-create_time')[:6]
+    background_image = BackgroundImage.objects.all().order_by('-create_time')[0]
     boot_nav_list = AboutUsModel.objects.all()
     context = {
         'carousels_list': carousels_list,
         'new_products_list': new_products_list,
-        'boot_nav_list': boot_nav_list
+        'boot_nav_list': boot_nav_list,
+        'background_image': background_image
     }
     return render(request, 'flower/index.html', context)
 
