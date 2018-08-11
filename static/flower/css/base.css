@@ -299,8 +299,8 @@ li {
 }
 
 .bg-image img {
-	max-height: 720px;
-	max-width: 960px;
+	height: 580px;
+	width: 960px;
 	opacity: 0.9;
 	/*margin: 0 auto;*/
 }
@@ -412,6 +412,7 @@ li {
 
 .bt {
 	padding: 10px;
+	text-align: center;
 }
 
 .bt p {
