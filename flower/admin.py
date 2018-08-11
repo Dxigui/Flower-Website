@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 
-from flower.models import AboutUsModel, KeyWords, Category, Product, Carousel, Terminal, BootTag
+from flower.models import AboutUsModel, KeyWords, Category, Product, Carousel, Terminal, BootTag, BackgroundImage
 
 class AboutUsModelAdmin(admin.ModelAdmin):
     list_display = ('title', 'id', 'btTag')
@@ -48,6 +48,12 @@ class BootTagAdmin(admin.ModelAdmin):
     search_fields = ('title', 'id')
 
 
+class BackgroundImageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'img_link', 'create_time')
+    list_per_page = 10
+    search_fields = ('id',)
+    list_filter = ('create_time',)
+
 
 admin.site.register(AboutUsModel, AboutUsModelAdmin)
 admin.site.register(Category, CategoryAdmin)
@@ -56,3 +62,4 @@ admin.site.register(Product, ProductAmin)
 admin.site.register(Terminal, TerminalAdmin)
 admin.site.register(KeyWords, KeyWordsAdmin)
 admin.site.register(BootTag, BootTagAdmin)
+admin.site.register(BackgroundImage, BackgroundImageAdmin)

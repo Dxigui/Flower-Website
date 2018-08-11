@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4a3e+)+d5v5yeq6&o=1_nnoiuixehv7v7qw5_$)rg-_v#((@)g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False 
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.huaji.xyz']
 
@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'flowers',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'DENGxgls.5820',
         'HOST': '',
         'PORT': '3306',
     }
@@ -126,11 +126,11 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'flower', 'static'),
-    os.path.join(BASE_DIR, 'blog', 'static')
-)
-
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'flower', 'static'),
+#    os.path.join(BASE_DIR, 'blog', 'static')
+#)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Haystack
