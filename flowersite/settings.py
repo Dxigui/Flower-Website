@@ -85,6 +85,7 @@ DATABASES = {
         'PASSWORD': 'DENGxgls.5820',
         'HOST': '',
         'PORT': '3306',
+        'CHARSET': 'utf8',
     }
 }
 
