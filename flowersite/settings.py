@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'flowersite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'flowers',
-        'USER': 'root',
-        'PASSWORD': 'DENGxgls.5820',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '3306',
         'CHARSET': 'utf8',
